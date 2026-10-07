@@ -1,0 +1,101 @@
+---
+const gaEnabled = Boolean(import.meta.env.PUBLIC_GA_ID);
+const consentKey = 'brandistiq_cookie_consent_v1';
+---
+{gaEnabled && (
+  <div class="cookie-consent" data-cookie-consent hidden>
+    <div class="cookie-consent-card" role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title">
+      <div>
+        <div class="eyebrow">Privatnost</div>
+        <h2 id="cookie-consent-title">Vaša privatnost nam je važna.</h2>
+        <p>
+          Koristimo nužne tehničke funkcije za rad stranice. Analitički kolačići
+          Google Analyticsa aktiviraju se samo ako ih prihvatite. Izbor možete
+          kasnije promijeniti u postavkama kolačića.
+        </p>
+        <p class="cookie-consent-links">
+          <a href="/kolacici/">Obavijest o kolačićima</a>
+          <span aria-hidden="true">·</span>
+          <a href="/privatnost/">Pravila privatnosti</a>
+        </p>
+      </div>
+
+      <div class="cookie-consent-actions">
+        <button type="button" class="cookie-button cookie-button-primary" data-cookie-accept>Prihvaćam</button>
+        <button type="button" class="cookie-button cookie-button-secondary" data-cookie-reject>Odbijam</button>
+        <button type="button" class="cookie-button cookie-button-ghost" data-cookie-settings>Postavke</button>
+      </div>
+
+      <div class="cookie-consent-preferences" data-cookie-preferences hidden>
+        <div class="cookie-preference-row">
+          <div>
+            <strong>Nužne funkcije</strong>
+            <span>Potrebne za osnovni rad stranice i pamćenje izbora.</span>
+          </div>
+          <input type="checkbox" checked disabled aria-label="Nužne funkcije uvijek aktivne" />
+        </div>
+        <div class="cookie-preference-row">
+          <div>
+            <strong>Analitika</strong>
+            <span>Google Analytics za statistiku korištenja stranice.</span>
+          </div>
+          <input type="checkbox" data-cookie-analytics aria-label="Analitički kolačići" />
+        </div>
+        <button type="button" class="cookie-button cookie-button-primary" data-cookie-save>Spremi odabir</button>
+      </div>
+    </div>
+  </div>
+)}
+
+<script define:vars={{ gaEnabled, consentKey }}>
+  (() => {
+    if (!gaEnabled) return;
+
+    const banner = document.querySelector('[data-cookie-consent]');
+    if (!banner) return;
+
+    const preferences = banner.querySelector('[data-cookie-preferences]');
+    const analytics = banner.querySelector('[data-cookie-analytics]');
+
+    const read = () => {
+      try {
+        return JSON.parse(localStorage.getItem(consentKey) || 'null');
+      } catch {
+        return null;
+      }
+    };
+
+    const save = (analyticsAllowed) => {
+      const value = {
+        analytics: Boolean(analyticsAllowed),
+        updatedAt: new Date().toISOString()
+      };
+
+      localStorage.setItem(consentKey, JSON.stringify(value));
+      banner.hidden = true;
+      window.dispatchEvent(new CustomEvent('brandistiq-cookie-consent', {
+        detail: value
+      }));
+    };
+
+    const open = () => {
+      banner.hidden = false;
+      if (preferences) preferences.hidden = false;
+      if (analytics) analytics.checked = read()?.analytics === true;
+    };
+
+    const existing = read();
+    if (!existing) {
+      banner.hidden = false;
+    }
+
+    banner.querySelector('[data-cookie-accept]')?.addEventListener('click', () => save(true));
+    banner.querySelector('[data-cookie-reject]')?.addEventListener('click', () => save(false));
+    banner.querySelector('[data-cookie-settings]')?.addEventListener('click', open);
+    banner.querySelector('[data-cookie-save]')?.addEventListener('click', () => save(analytics?.checked === true));
+
+    document.querySelectorAll('[data-cookie-settings]').forEach((button) => {
+      button.addEventListener('click', open);
+    });
+  })();
+</script>

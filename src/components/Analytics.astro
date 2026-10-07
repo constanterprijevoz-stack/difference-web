@@ -4,13 +4,38 @@ const verification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 ---
 {verification && <meta name="google-site-verification" content={verification} />}
 {gaId && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-    <script is:inline define:vars={{ gaId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', gaId, { anonymize_ip: true });
-    </script>
-  </>
+  <script is:inline define:vars={{ gaId }}>
+    (() => {
+      const consentKey = 'brandistiq_cookie_consent_v1';
+
+      function loadAnalytics() {
+        if (window.__brandistiqAnalyticsLoaded || !gaId) return;
+        window.__brandistiqAnalyticsLoaded = true;
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', gaId, { anonymize_ip: true });
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+        document.head.appendChild(script);
+      }
+
+      function hasAnalyticsConsent() {
+        try {
+          return JSON.parse(localStorage.getItem(consentKey) || '{}').analytics === true;
+        } catch {
+          return false;
+        }
+      }
+
+      if (hasAnalyticsConsent()) loadAnalytics();
+
+      window.addEventListener('brandistiq-cookie-consent', (event) => {
+        if (event.detail?.analytics === true) loadAnalytics();
+      });
+    })();
+  </script>
 )}

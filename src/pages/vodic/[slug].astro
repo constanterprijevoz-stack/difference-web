@@ -10,9 +10,23 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const articleSchema = { '@context':'https://schema.org', '@type':'Article', headline:entry.data.title, description:entry.data.description, url:new URL(Astro.url.pathname, 'https://difference-usluge.com.hr').toString(), publisher:{ '@type':'Organization', name:'BrandistiQ', url:'https://difference-usluge.com.hr/' } };
+const articleSchema = {
+  '@context':'https://schema.org',
+  '@type':'Article',
+  headline:entry.data.title,
+  description:entry.data.description,
+  url:new URL(Astro.url.pathname, 'https://difference-usluge.com.hr').toString(),
+  publisher:{ '@type':'Organization', name:'BrandistiQ', url:'https://difference-usluge.com.hr/' },
+  ...(entry.data.publishedAt ? { datePublished: entry.data.publishedAt.toISOString() } : {}),
+  ...(entry.data.updatedAt ? { dateModified: entry.data.updatedAt.toISOString() } : {})
+};
 ---
-<BaseLayout title={`${entry.data.title} | BrandistiQ`} description={entry.data.description} breadcrumbs={[{name:'Početna',url:'/'},{name:'Digitalni vodič',url:'/vodic/'},{name:entry.data.title,url:`/vodic/${entry.id}/`}] }>
+<BaseLayout
+  title={`${entry.data.title} | BrandistiQ`}
+  description={entry.data.description}
+  breadcrumbs={[{name:'Početna',url:'/'},{name:'Digitalni vodič',url:'/vodic/'},{name:entry.data.title,url:`/vodic/${entry.id}/`}]}
+  structuredData={[articleSchema]}
+>
   <article class="article-page"><div class="container article-wrap">
     <div class="eyebrow">Digitalni vodič</div>
     <h1>{entry.data.title}</h1>

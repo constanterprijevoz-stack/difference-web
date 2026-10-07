@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Kolačići | BrandistiQ"
+  description="Obavijest o kolačićima na web stranici BrandistiQ, uključujući nužne funkcije i analitičke kolačiće."
+  breadcrumbs={[{ name: 'Početna', url: '/' }, { name: 'Kolačići', url: '/kolacici/' }]}
+>
+  <section class="page-hero legal-hero">
+    <div class="container">
+      <div class="eyebrow">Pravne informacije</div>
+      <h1>Obavijest o kolačićima.</h1>
+      <p>Jasno objašnjenje tehnologija koje mogu biti pohranjene na vašem uređaju i način na koji možete upravljati svojim izborom.</p>
+    </div>
+  </section>
+
+  <section class="section legal-section">
+    <div class="container legal-wrap">
+      <p class="legal-updated"><strong>Posljednje ažuriranje:</strong> 7. listopada 2026.</p>
+
+      <h2>1. Što su kolačići?</h2>
+      <p>Kolačići su male tekstualne datoteke, odnosno slične tehnologije za pohranu podataka na uređaj korisnika ili pristup podacima na uređaju. Mogu služiti za tehničko funkcioniranje stranice, pamćenje postavki ili mjerenje korištenja stranice.</p>
+
+      <h2>2. Što trenutno koristimo</h2>
+      <p>Stranica je projektirana tako da se nenužni analitički alati ne aktiviraju prije vašeg izbora. Kada Google Analytics nije konfiguriran, stranica nema potrebu za bannerom za privolu za analitičke kolačiće.</p>
+      <p>Kada se Google Analytics aktivira putem konfiguracijske varijable <code>PUBLIC_GA_ID</code>, analitika ostaje isključena dok korisnik ne odabere prihvaćanje. Odbijanje analitike ne onemogućuje pristup osnovnom sadržaju stranice.</p>
+
+      <h2>3. Kategorije</h2>
+      <div class="legal-table-wrap">
+        <table class="legal-table">
+          <thead>
+            <tr><th>Kategorija</th><th>Svrha</th><th>Privola</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Nužne funkcije</td><td>Osnovni rad stranice i pamćenje izbora vezanih uz privatnost.</td><td>Nije potrebna kada su tehnički nužne.</td></tr>
+            <tr><td>Analitika</td><td>Google Analytics 4 za statistiku korištenja i razumijevanje posjećenosti.</td><td>Da, prije aktivacije.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>4. Google Analytics 4</h2>
+      <p>Ako je Google Analytics aktiviran, koristi se samo nakon vaše privole za analitiku. Google Analytics može koristiti kolačiće, uključujući kolačiće poput <code>_ga</code> i konfiguracijskih kolačića povezanih s mjernim ID-jem. Točan skup i rokovi ovise o aktualnoj konfiguraciji Google Analyticsa i mogu se promijeniti.</p>
+      <p>Analitika se na ovoj stranici ne učitava prije prihvaćanja analitičkih kolačića. Ova implementacija nije namijenjena oglašavanju niti personaliziranom marketingu.</p>
+
+      <h2>5. Postavke i povlačenje privole</h2>
+      <p>Ako je analitika aktivirana, možete svoj izbor promijeniti u bilo kojem trenutku putem gumba <strong>Postavke kolačića</strong> u podnožju stranice. Odbijanje i prihvaćanje trebaju biti jednako jednostavni.</p>
+      <p>Vaš izbor za analitiku sprema se lokalno kako bi stranica mogla zapamtiti vašu odluku. Ako obrišete podatke web-mjesta u pregledniku, izbor će se morati ponovno postaviti.</p>
+
+      <h2>6. Treće strane</h2>
+      <p>Ova obavijest mora se ažurirati prije ugradnje novih usluga koje mogu koristiti kolačiće ili druge tehnologije praćenja, primjerice Meta Pixela, Google Adsa, ugrađenih videozapisa, društvenih dodataka ili drugih marketinških alata.</p>
+
+      <h2>7. Kontakt</h2>
+      <p>Za pitanja o kolačićima i privatnosti možete kontaktirati voditelja obrade:</p>
+      <p><strong>Difference, obrt za usluge</strong><br />Martićeva 67, 10000 Zagreb, Hrvatska<br />E-mail: <a href="mailto:difference.usluge@gmail.com">difference.usluge@gmail.com</a></p>
+
+      <div class="legal-note">
+        Ova obavijest treba odgovarati stvarnom tehničkom stanju stranice. Ako se promijeni konfiguracija analitike, uvede novi alat ili se promijeni način obrade podataka, sadržaj treba ponovno pregledati i ažurirati.
+      </div>
+    </div>
+  </section>
+</BaseLayout>
