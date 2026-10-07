@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+const articles=await getCollection('vodic',({data})=>!data.draft);
+---
+<BaseLayout title="Digitalni vodič | BrandistiQ" description="Praktični vodiči o SEO-u, web stranicama, AI rješenjima i digitalnom poslovanju.">
+<section class="page-hero"><div class="container"><div class="eyebrow">Digitalni vodič</div><h1>Znanje koje možete primijeniti.</h1><p>Praktični vodiči za poduzetnike i tvrtke — bez nepotrebnog tehničkog žargona i bez obećanja koja ne možemo dokazati.</p></div></section>
+<section class="section"><div class="container"><SectionHeading eyebrow="Vodič" title="Od stvarnog problema do jasnog sljedećeg koraka." text="Vodič gradimo oko pitanja koja se pojavljuju u stvarnim digitalnim projektima." /><div class="article-list">{articles.map(a=><a class="article-card" href={`/vodic/${a.id}/`}><div class="card-number">{a.data.category || 'Vodič'}</div><h3>{a.data.title}</h3><p>{a.data.description}</p><span>Pročitaj vodič →</span></a>)}</div></div></section>
+</BaseLayout>

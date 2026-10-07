@@ -1,0 +1,8 @@
+---
+import { getEntry, render } from 'astro:content';
+import ServicePage from '../../components/ServicePage.astro';
+const entry = await getEntry('usluge', 'web-stranice-za-tvrtke');
+if (!entry) throw new Error('Missing content: web-stranice-za-tvrtke');
+const { Content } = await render(entry);
+---
+<ServicePage entry={entry} section="Web" label="BrandistiQ · Web"><Content /></ServicePage>

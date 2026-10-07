@@ -1,0 +1,69 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="/" aria-label="BrandistiQ početna stranica">Brandisti<span>Q</span></a>
+    <nav class="desktop-nav" aria-label="Glavna navigacija">
+      <details class="nav-dropdown">
+        <summary>SEO <span>⌄</span></summary>
+        <div class="dropdown-panel">
+          <a href="/seo/">SEO pregled</a>
+          <a href="/seo/seo-optimizacija/">SEO optimizacija</a>
+          <a href="/seo/seo-google/">Google SEO</a>
+          <a href="/seo/seo-bing/">Bing SEO</a>
+          <a href="/seo/lokalni-seo/">Lokalni SEO</a>
+          <a href="/seo/google-business/">Google Business</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Web <span>⌄</span></summary>
+        <div class="dropdown-panel">
+          <a href="/web-stranice/">Izrada web stranica</a>
+          <a href="/web-stranice/web-stranice-za-obrte/">Za obrte</a>
+          <a href="/web-stranice/web-stranice-za-tvrtke/">Za tvrtke</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>AI <span>⌄</span></summary>
+        <div class="dropdown-panel">
+          <a href="/ai-rjesenja/">AI rješenja</a>
+          <a href="/ai-rjesenja/ai-chatbot/">AI chatbot</a>
+          <a href="/ai-rjesenja/ai-asistent/">AI asistent</a>
+          <a href="/ai-rjesenja/ai-automatizacija/">AI automatizacija</a>
+        </div>
+      </details>
+      <a href="/web-aplikacije/">Web aplikacije</a>
+      <a href="/projekti/">Projekti</a>
+      <a href="/vodic/">Vodič</a>
+    </nav>
+    <a class="nav-cta" href="/kontakt/">Kontakt <span>↗</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otvori izbornik"><span></span><span></span></button>
+  </div>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <details><summary>SEO <span>⌄</span></summary><div class="mobile-submenu"><a href="/seo/">SEO pregled</a><a href="/seo/seo-optimizacija/">SEO optimizacija</a><a href="/seo/seo-google/">Google SEO</a><a href="/seo/seo-bing/">Bing SEO</a><a href="/seo/lokalni-seo/">Lokalni SEO</a><a href="/seo/google-business/">Google Business</a></div></details>
+    <details><summary>Web <span>⌄</span></summary><div class="mobile-submenu"><a href="/web-stranice/">Izrada web stranica</a><a href="/web-stranice/web-stranice-za-obrte/">Za obrte</a><a href="/web-stranice/web-stranice-za-tvrtke/">Za tvrtke</a></div></details>
+    <details><summary>AI <span>⌄</span></summary><div class="mobile-submenu"><a href="/ai-rjesenja/">AI rješenja</a><a href="/ai-rjesenja/ai-chatbot/">AI chatbot</a><a href="/ai-rjesenja/ai-asistent/">AI asistent</a><a href="/ai-rjesenja/ai-automatizacija/">AI automatizacija</a></div></details>
+    <a href="/web-aplikacije/">Web aplikacije</a><a href="/projekti/">Projekti</a><a href="/vodic/">Digitalni vodič</a><a href="/o-nama/">O nama</a><a href="/kontakt/">Kontakt</a>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('#mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    if (menu) menu.hidden = open;
+    document.body.classList.toggle('menu-open', !open);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu && !menu.hidden) {
+      menu.hidden = true;
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      toggle?.focus();
+    }
+  });
+  document.querySelectorAll('#mobile-menu a').forEach((link) => link.addEventListener('click', () => {
+    if (menu) menu.hidden = true;
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }));
+</script>

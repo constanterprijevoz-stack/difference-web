@@ -1,0 +1,8 @@
+---
+import { getEntry, render } from 'astro:content';
+import ServicePage from '../../components/ServicePage.astro';
+const entry = await getEntry('usluge', 'ai-automatizacija');
+if (!entry) throw new Error('Missing content: ai-automatizacija');
+const { Content } = await render(entry);
+---
+<ServicePage entry={entry} section="AI rješenja" label="BrandistiQ · AI rješenje"><Content /></ServicePage>

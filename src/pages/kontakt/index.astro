@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Kontakt | BrandistiQ"
+  description="Kontaktirajte BrandistiQ za SEO, web stranice, AI rješenja i web aplikacije. Digitalna rješenja za poduzetnike i tvrtke u Hrvatskoj."
+  breadcrumbs={[{ name: 'Početna', url: '/' }, { name: 'Kontakt', url: '/kontakt/' }]}
+>
+  <section class="page-hero contact-hero">
+    <div class="container">
+      <div class="eyebrow">BrandistiQ</div>
+      <h1>Recite nam što želite riješiti.</h1>
+      <p>Ne morate imati gotovu specifikaciju. Opišite situaciju, ideju ili problem, a mi ćemo predložiti smislen prvi korak.</p>
+    </div>
+  </section>
+
+  <section class="section contact-section">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <div class="eyebrow">Pošaljite upit</div>
+        <h2>Od ideje do konkretnog plana.</h2>
+        <p>Radimo na daljinu za poduzetnike i tvrtke u Hrvatskoj. Nakon upita možemo definirati opseg, prioritete i najpraktičniji način razvoja.</p>
+        <div class="contact-points">
+          <div><strong>SEO</strong><span>vidljivost i organsko pretraživanje</span></div>
+          <div><strong>Web</strong><span>stranice koje imaju poslovnu svrhu</span></div>
+          <div><strong>AI</strong><span>asistenti, chatbotovi i automatizacije</span></div>
+          <div><strong>Web aplikacije</strong><span>alati i procesi po mjeri</span></div>
+        </div>
+      </div>
+
+      <form class="contact-form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/kontakt/hvala/">
+        <input type="hidden" name="form-name" value="kontakt" />
+        <p class="form-honeypot"><label>Ne ispunjavajte ovo polje: <input name="bot-field" /></label></p>
+        <label>Ime i prezime<input type="text" name="ime" autocomplete="name" required /></label>
+        <label>E-mail<input type="email" name="email" autocomplete="email" required /></label>
+        <label>Tvrtka / obrt <span class="optional">opcionalno</span><input type="text" name="tvrtka" autocomplete="organization" /></label>
+        <label>Što želite riješiti?<textarea name="poruka" rows="7" required></textarea></label>
+        <label class="consent"><input type="checkbox" name="privatnost" value="prihvaceno" required /><span>Pročitao/la sam <a href="/privatnost/">pravila privatnosti</a> i pristajem na obradu podataka potrebnih za odgovor na upit.</span></label>
+        <button class="button" type="submit">Pošalji upit <span>↗</span></button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

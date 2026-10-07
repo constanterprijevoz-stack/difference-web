@@ -1,0 +1,16 @@
+---
+const gaId = import.meta.env.PUBLIC_GA_ID;
+const verification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+---
+{verification && <meta name="google-site-verification" content={verification} />}
+{gaId && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId, { anonymize_ip: true });
+    </script>
+  </>
+)}

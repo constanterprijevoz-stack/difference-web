@@ -1,0 +1,8 @@
+---
+import { getEntry, render } from 'astro:content';
+import ServicePage from '../../components/ServicePage.astro';
+const entry = await getEntry('usluge', 'seo-bing');
+if (!entry) throw new Error('Missing content: seo-bing');
+const { Content } = await render(entry);
+---
+<ServicePage entry={entry} section="SEO" label="BrandistiQ · SEO"><Content /></ServicePage>

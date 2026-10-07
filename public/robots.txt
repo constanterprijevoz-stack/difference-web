@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://difference-usluge.com.hr/sitemap-index.xml

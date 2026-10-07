@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTA from '../../components/CTA.astro';
+---
+<BaseLayout
+  title="O nama | BrandistiQ"
+  description="BrandistiQ je digitalni brend obrta Difference. Razvijamo SEO, web, AI i web aplikacije usmjerene na konkretne poslovne potrebe."
+  breadcrumbs={[{ name: 'Početna', url: '/' }, { name: 'O nama', url: '/o-nama/' }]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">BrandistiQ · Difference</div>
+      <h1>Tehnologija treba služiti poslovanju.</h1>
+      <p>BrandistiQ je digitalni brend obrta Difference. Razvijamo digitalna rješenja koja povezuju vidljivost, jasnu komunikaciju i konkretne poslovne procese.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div><div class="eyebrow">Kako razmišljamo</div><h2>Ne nudimo tehnologiju kao cilj.</h2></div>
+      <div class="split-copy">
+        <p>SEO, web stranica, AI asistent ili web aplikacija imaju vrijednost tek kada odgovaraju stvarnoj potrebi. Zato prvo pokušavamo razumjeti problem, korisnika i poslovni cilj.</p>
+        <p>Rješenja gradimo modularno. Projekt može početi jednostavnom web stranicom, a kasnije prerasti u napredniji sustav, automatizaciju ili web aplikaciju.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-heading"><div class="eyebrow">Što povezujemo</div><h2>Četiri područja koja rade zajedno.</h2><p>Vidljivost, korisničko iskustvo i tehnologija ne moraju biti odvojeni projekti.</p></div>
+      <div class="services-grid">
+        <div class="service-card"><span class="card-number">01</span><div><h3>SEO</h3><p>Struktura, sadržaj i tehnička osnova za organsku vidljivost.</p></div></div>
+        <div class="service-card"><span class="card-number">02</span><div><h3>Web</h3><p>Web stranice koje jasno predstavljaju ponudu i vode korisnika prema akciji.</p></div></div>
+        <div class="service-card"><span class="card-number">03</span><div><h3>AI</h3><p>Asistenti, chatbotovi i automatizacije tamo gdje stvarno imaju smisla.</p></div></div>
+        <div class="service-card"><span class="card-number">04</span><div><h3>Web aplikacije</h3><p>Digitalni alati i poslovni procesi razvijeni prema konkretnoj potrebi.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div><div class="eyebrow">Difference</div><h2>BrandistiQ je digitalni brend obrta Difference.</h2></div>
+      <div class="split-copy"><p>Difference je poslovni subjekt iza brenda. BrandistiQ je ime pod kojim razvijamo digitalna rješenja i gradimo javni nastup usmjeren na SEO, web, AI i web aplikacije.</p><p>Na vlastitim projektima testiramo ideje, strukture i tehnologije koje kasnije možemo primijeniti i u projektima za klijente.</p></div>
+    </div>
+  </section>
+
+  <div class="container"><CTA title="Imate problem koji treba digitalno riješiti?" text="Opišite nam situaciju. Ne morate unaprijed znati koje je tehnološko rješenje najbolje." /></div>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+const {
+  title = 'Razgovarajmo o rješenju.',
+  text = 'Ne morate unaprijed znati treba li vam SEO, web, AI ili web aplikacija. Krenimo od onoga što želite postići.',
+  label = 'Imate ideju ili konkretan problem?',
+  href = '/kontakt/',
+  button = 'Pošaljite upit',
+} = Astro.props;
+---
+<section class="cta-section">
+  <div><div class="eyebrow">{label}</div><h2>{title}</h2><p>{text}</p></div>
+  <a class="button" href={href}>{button} <span>↗</span></a>
+</section>

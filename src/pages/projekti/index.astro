@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+const projects=await getCollection('projekti',({data})=>!data.draft);
+---
+<BaseLayout title="Projekti | BrandistiQ" description="Digitalni projekti BrandistiQ-a: web aplikacije, alati, SEO i digitalni proizvodi.">
+<section class="page-hero"><div class="container"><div class="eyebrow">BrandistiQ</div><h1>Projekti koji nisu ostali samo ideja.</h1><p>Primjeri digitalnih rješenja kroz koja razvijamo web, SEO, AI i web aplikacije kao povezane dijelove poslovanja.</p></div></section>
+<section class="section"><div class="container"><SectionHeading eyebrow="Od ideje do proizvoda" title="Svaki projekt počinje konkretnim problemom." /><div class="projects-grid">{projects.map(p=><a class="project-card" href={`/projekti/${p.id}/`}><div class="project-meta"><span>Projekt</span><span>BrandistiQ</span></div><h3>{p.data.title}</h3><p>{p.data.description}</p><span class="project-link">Pogledaj projekt →</span></a>)}</div></div></section>
+</BaseLayout>
