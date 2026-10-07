@@ -1,0 +1,17 @@
+Dodaj na kraj src/styles/global.css:
+
+@import "./visual-v6.css";
+
+Ako koristiš import na vrhu global.css, stavi ga na vrh datoteke prije ostalih pravila.
+
+Datoteke koje zamjenjuješ:
+- src/components/ServiceCard.astro
+- src/pages/index.astro
+- src/layouts/BaseLayout.astro
+
+Nova datoteka:
+- src/components/WhatsAppButton.astro
+- src/styles/visual-v6.css
+
+WhatsApp:
+https://wa.me/385958280800
