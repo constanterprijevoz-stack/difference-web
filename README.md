@@ -1,16 +1,13 @@
-# Difference / BrandistiQ
+# Smart-troškovnik – project gallery update
 
-Astro 7 static website for difference-usluge.com.hr.
+Replace the corresponding files in the repository.
 
-## Environment variables
+The four JPGs belong next to `smart-troskovnik.md`:
+- smart-troskovnik-01.jpg (cover)
+- smart-troskovnik-02.jpg
+- smart-troskovnik-03.jpg
+- smart-troskovnik-04.jpg
 
-Optional Netlify environment variables:
+For every future project, add `cover`, `coverAlt`, `externalUrl` and `gallery` to its Markdown frontmatter.
 
-- `PUBLIC_GA_ID` — Google Analytics 4 Measurement ID, e.g. `G-XXXXXXXXXX`
-- `PUBLIC_GOOGLE_SITE_VERIFICATION` — Google Search Console verification token
-
-If these are not set, no analytics or verification tag is rendered.
-
-## Contact form
-
-The contact form uses Netlify Forms. Configure the notification recipient in Netlify under Forms / Form notifications after deployment.
+The Astro `image()` content-collection helper lets local images be processed by Astro, while `<Picture>` serves modern AVIF/WebP formats for the gallery.

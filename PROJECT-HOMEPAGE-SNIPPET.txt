@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import CTA from '../components/CTA.astro';
+
+const projectEntries = await getCollection('projekti', ({ data }) => !data.draft);
+const projectById = new Map(projectEntries.map((project) => [project.id, project]));
+const smartTroskovnik = projectById.get('smart-troskovnik');
+const driveQ = projectById.get('driveq');
+const eprCheck = projectById.get('epr-check');
+const eprReport = projectById.get('epr-report');
+---
+<BaseLayout title="BrandistiQ — Digitalna rješenja koja vas čine vidljivijima" description="SEO, web, AI i web aplikacije za poduzetnike i tvrtke u Hrvatskoj. Digitalna rješenja koja povezuju vidljivost, tehnologiju i poslovne ciljeve." structuredData={[{ '@context':'https://schema.org', '@type':'WebSite', name:'BrandistiQ', url:'https://difference-usluge.com.hr/' }]}>
+  <!-- Ostatak postojeće početne stranice ostaje isti. U sekciji Projekti zamijeni postojeći .projects-grid ovim blokom: -->
+  <section class="section"><div class="container"><SectionHeading eyebrow="Od ideje do stvarnog proizvoda" title="Projekti koji nisu ostali samo na ideji." text="Vlastiti i razvojni projekti pokazuju kako pristupamo problemu, strukturi, UX-u i tehnologiji."/><div class="projects-grid">
+    <ProjectCard type="Web aplikacija" title="Smart-troškovnik" description="Digitalni alat za izračun troškova i pretvaranje složenog poslovnog procesa u jednostavno korisničko iskustvo." href="/projekti/smart-troskovnik/" image={smartTroskovnik?.data.cover} imageAlt={smartTroskovnik?.data.coverAlt}/>
+    <ProjectCard type="Digitalno rješenje" title="DriveQ" description="Projekt digitalizacije usluge povezane s transportom i mobilnošću." href="/projekti/driveq/" image={driveQ?.data.cover} imageAlt={driveQ?.data.coverAlt}/>
+    <ProjectCard type="EPR · web aplikacija" title="EPR Check" description="Digitalni alat koji složen proces provjere pretvara u strukturirano korisničko iskustvo." href="/projekti/epr-check/" image={eprCheck?.data.cover} imageAlt={eprCheck?.data.coverAlt}/>
+    <ProjectCard type="Digitalni proizvod" title="EPR Report" description="Nastavak EPR Checka: strukturirani digitalni izvještaj iz prikupljenih podataka." href="/projekti/epr-report/" image={eprReport?.data.cover} imageAlt={eprReport?.data.coverAlt}/>
+  </div><div class="section-link"><a class="text-link" href="/projekti/">Svi projekti <span>→</span></a></div></div></section>
+</BaseLayout>

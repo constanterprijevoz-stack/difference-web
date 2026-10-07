@@ -18,7 +18,17 @@ export const collections = {
   }),
   projekti: defineCollection({
     loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projekti' }),
-    schema: base.extend({ client: z.string().optional() }),
+    schema: ({ image }) => base.extend({
+      client: z.string().optional(),
+      type: z.string().optional(),
+      externalUrl: z.string().url().optional(),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      gallery: z.array(z.object({
+        image: image(),
+        alt: z.string(),
+      })).default([]),
+    }),
   }),
   usluge: defineCollection({
     loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/usluge' }),

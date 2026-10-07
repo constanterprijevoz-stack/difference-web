@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTA from '../../components/CTA.astro';
 
@@ -13,11 +14,57 @@ const { Content } = await render(entry);
 const projectSchema = { '@context':'https://schema.org', '@type':'CreativeWork', name:entry.data.title, description:entry.data.description, url:new URL(Astro.url.pathname, 'https://difference-usluge.com.hr').toString(), creator:{ '@type':'Organization', name:'BrandistiQ', url:'https://difference-usluge.com.hr/' } };
 ---
 <BaseLayout title={`${entry.data.title} | BrandistiQ`} description={entry.data.description} breadcrumbs={[{name:'Početna',url:'/'},{name:'Projekti',url:'/projekti/'},{name:entry.data.title,url:`/projekti/${entry.id}/`}] } structuredData={[projectSchema]}>
-  <article class="article-page"><div class="container article-wrap">
-    <div class="eyebrow">Projekt</div>
-    <h1>{entry.data.title}</h1>
-    <p class="article-lead">{entry.data.description}</p>
-    <div class="article-body"><Content /></div>
-    <CTA title="Imate sličnu ideju?" text="Razgovarajmo o tome kako je možemo pretvoriti u funkcionalno digitalno rješenje." />
-  </div></article>
+  <article class="project-detail">
+    <div class="container project-detail-wrap">
+      <div class="eyebrow">Projekt{entry.data.type ? ` · ${entry.data.type}` : ''}</div>
+      <h1>{entry.data.title}</h1>
+      <p class="article-lead">{entry.data.description}</p>
+
+      {entry.data.cover && (
+        <figure class="project-cover">
+          <Image src={entry.data.cover} alt={entry.data.coverAlt || entry.data.title} quality="high" />
+        </figure>
+      )}
+
+      {entry.data.externalUrl && (
+        <div class="project-actions">
+          <a class="button" href={entry.data.externalUrl} target="_blank" rel="noopener noreferrer">Otvori projekt <span>↗</span></a>
+        </div>
+      )}
+
+      <div class="article-body"><Content /></div>
+
+      {entry.data.gallery.length > 0 && (
+        <section class="project-gallery" aria-labelledby="project-gallery-title">
+          <div class="eyebrow">Galerija</div>
+          <h2 id="project-gallery-title">Pogledajte projekt izbliza.</h2>
+          <div class="project-gallery-grid">
+            {entry.data.gallery.map((item, index) => (
+              <figure class={index === 0 ? 'gallery-item gallery-item-wide' : 'gallery-item'}>
+                <Picture src={item.image} formats={['avif','webp']} alt={item.alt} quality="high" loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <CTA title="Imate sličnu ideju?" text="Razgovarajmo o tome kako je možemo pretvoriti u funkcionalno digitalno rješenje." />
+    </div>
+  </article>
 </BaseLayout>
+
+<style>
+.project-detail{padding:90px 0 120px}
+.project-detail-wrap{max-width:1120px}
+.project-detail h1{max-width:900px;margin:14px 0 18px}
+.project-cover{margin:52px 0 34px;border:1px solid rgba(255,255,255,.1);overflow:hidden;background:#0d1219}
+.project-cover img{display:block;width:100%;height:auto}
+.project-actions{display:flex;gap:14px;margin:0 0 58px}
+.project-gallery{margin:86px 0}
+.project-gallery h2{margin:10px 0 32px}
+.project-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.gallery-item{margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0d1219}
+.gallery-item-wide{grid-column:1/-1}
+.gallery-item img{display:block;width:100%;height:auto}
+@media(max-width:720px){.project-detail{padding:60px 0 90px}.project-gallery-grid{grid-template-columns:1fr}.gallery-item-wide{grid-column:auto}.project-actions .button{width:100%;justify-content:center}}
+</style>

@@ -1,4 +1,31 @@
 ---
-const { title, type, description, href } = Astro.props;
+import { Image } from 'astro:assets';
+
+const { title, type, description, href, image, imageAlt } = Astro.props;
 ---
-<a class="project-card" href={href}><div class="project-meta"><span>{type}</span><span>↗</span></div><h3>{title}</h3><p>{description}</p><span class="project-link">Pogledaj projekt</span></a>
+<a class="project-card" href={href}>
+  {image && (
+    <div class="project-card-media">
+      <Image src={image} alt={imageAlt || title} width={1200} height={700} loading="lazy" />
+    </div>
+  )}
+  <div class="project-card-content">
+    <div class="project-meta"><span>{type}</span><span>↗</span></div>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="project-link">Pogledaj projekt <span>→</span></span>
+  </div>
+</a>
+
+<style>
+.project-card{display:flex;flex-direction:column;overflow:hidden;padding:0;min-height:100%;background:#0c1118;border:1px solid rgba(255,255,255,.08);transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.project-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.16);background:#101721}
+.project-card-media{aspect-ratio:16/9;overflow:hidden;background:#111821}
+.project-card-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top;transition:transform .45s ease}
+.project-card:hover .project-card-media img{transform:scale(1.025)}
+.project-card-content{padding:28px 28px 30px}
+.project-card .project-meta{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px;color:#8f9aaa;font-size:.76rem;text-transform:uppercase;letter-spacing:.12em}
+.project-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:1.55rem;letter-spacing:-.04em}
+.project-card p{margin:0;color:#aeb8c8;line-height:1.6}
+.project-link{display:inline-flex;gap:8px;margin-top:24px;font-weight:600;color:#fff}
+</style>
