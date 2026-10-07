@@ -6,18 +6,9 @@ import ProjectCard from '../../components/ProjectCard.astro';
 
 const projects = await getCollection('projekti', ({ data }) => !data.draft);
 ---
-<BaseLayout title="Projekti | BrandistiQ" description="Digitalni projekti BrandistiQ-a: web aplikacije, alati, SEO i digitalni proizvodi.">
+<BaseLayout title="Projekti | BrandistiQ" description="Digitalni projekti BrandistiQ-a: web stranice, web aplikacije i druga digitalna rješenja.">
 <section class="page-hero"><div class="container"><div class="eyebrow">BrandistiQ</div><h1>Projekti koji nisu ostali samo ideja.</h1><p>Primjeri digitalnih rješenja kroz koja razvijamo web, SEO, AI i web aplikacije kao povezane dijelove poslovanja.</p></div></section>
 <section class="section"><div class="container"><SectionHeading eyebrow="Od ideje do proizvoda" title="Svaki projekt počinje konkretnim problemom." /><div class="projects-grid">
-{projects.map((p) => (
-  <ProjectCard
-    type={p.data.type || 'Projekt'}
-    title={p.data.title}
-    description={p.data.description}
-    href={`/projekti/${p.id}/`}
-    image={p.data.cover}
-    imageAlt={p.data.coverAlt}
-  />
-))}
+{projects.map(p => <ProjectCard type={p.data.type || 'Projekt'} title={p.data.title} description={p.data.description} href={`/projekti/${p.id}/`} image={p.data.cover} imageAlt={p.data.coverAlt}/>)}
 </div></div></section>
 </BaseLayout>

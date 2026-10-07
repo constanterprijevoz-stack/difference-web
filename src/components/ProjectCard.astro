@@ -1,12 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-
 const { title, type, description, href, image, imageAlt } = Astro.props;
 ---
 <a class:list={['project-card', { 'project-card-with-image': image }]} href={href}>
   {image && (
     <div class="project-card-media">
-      <Image src={image} alt={imageAlt || title} width={1200} height={675} loading="lazy" />
+      <img src={image} alt={imageAlt || title} width="1200" height="675" loading="lazy" decoding="async" />
     </div>
   )}
   <div class="project-card-content">

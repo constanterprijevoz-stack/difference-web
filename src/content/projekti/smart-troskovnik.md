@@ -1,45 +1,48 @@
 ---
 title: "Smart-troškovnik"
-description: "Web aplikacija za digitalizaciju izračuna i troškovnika. Projekt pokazuje kako konkretan poslovni problem može postati jednostavniji digitalni alat."
+description: "Web aplikacija za digitalizaciju izračuna i troškovnika — od početne procjene budžeta do strukturiranog investitorskog predtroškovnika."
 client: "BrandistiQ / Difference"
 type: "Web aplikacija"
 externalUrl: "https://www.smart-troskovnik.com.hr/"
-cover: "./smart-troskovnik-cover.jpg"
-coverAlt: "Smart-troškovnik — naslovni prikaz web aplikacije za izračun okvirnog budžeta"
+cover: "/projects/smart-troskovnik/cover.webp"
+coverAlt: "Smart-troškovnik — početni ekran aplikacije za procjenu okvirnog budžeta"
 gallery:
-  - image: "./smart-troskovnik-01.jpg"
-    alt: "Smart-troškovnik — početni ekran aplikacije"
+  - image: "/projects/smart-troskovnik/01.webp"
+    alt: "Smart-troškovnik — početni ekran"
     caption: "Početni ekran vodi investitora prema brzoj procjeni okvirnog budžeta prije projektiranja i ugovaranja."
-  - image: "./smart-troskovnik-02.jpg"
-    alt: "Smart-troškovnik — pregled stavki, količina i cijena"
-    caption: "Pregled stavki omogućuje provjeru pretpostavljenih materijala, količina i jediničnih cijena."
-  - image: "./smart-troskovnik-03.jpg"
-    alt: "Smart-troškovnik — primjer investitorskog predtroškovnika"
-    caption: "Rezultat procjene može se prikazati kao strukturirani investitorski predtroškovnik."
-  - image: "./smart-troskovnik-04.jpg"
-    alt: "Smart-troškovnik — kome je alat namijenjen"
-    caption: "Alat je namijenjen početnom budžetiranju privatnog investitora, a ne zamjenjuje projektantski troškovnik."
+    width: 569
+    height: 1200
+  - image: "/projects/smart-troskovnik/02.webp"
+    alt: "Smart-troškovnik — pregled stavki"
+    caption: "Pregled stavki prikazuje materijale, količine i ukupne iznose u strukturiranom sučelju."
+    width: 596
+    height: 1200
+  - image: "/projects/smart-troskovnik/03.webp"
+    alt: "Smart-troškovnik — primjer predtroškovnika"
+    caption: "Investitorski predtroškovnik daje pregled grupa radova i okvirnih troškova."
+    width: 597
+    height: 1200
+  - image: "/projects/smart-troskovnik/04.webp"
+    alt: "Smart-troškovnik — završni prikaz dokumenta"
+    caption: "Projekt je zamišljen kao početni alat za planiranje, a ne kao zamjena za projektantski troškovnik."
+    width: 596
+    height: 1200
 ---
-
 # Smart-troškovnik
 
-Web aplikacija za digitalizaciju izračuna i troškovnika. Projekt pokazuje kako konkretan poslovni problem može postati jednostavniji digitalni alat.
+Web aplikacija za digitalizaciju izračuna i troškovnika — od početne procjene budžeta do strukturiranog investitorskog predtroškovnika.
 
 ## Ideja
 
-Projekt je nastao iz konkretnog problema koji nije najbolje rješavati klasičnom prezentacijskom web stranicom. Zato je fokus bio na korisničkom procesu, poslovnoj logici i mogućnosti budućeg razvoja.
+Projekt je nastao iz konkretnog poslovnog procesa koji je pogodnije pretvoriti u digitalni alat nego rješavati klasičnom prezentacijskom web stranicom.
 
 ## Digitalno rješenje
 
-Kod ovakvih projekata web nije samo vizualni sloj. Struktura, sadržaj, korisničko iskustvo, podaci i buduće funkcije moraju raditi zajedno.
+Fokus je na korisničkom procesu, poslovnoj logici, jasnom prikazu podataka i mogućnosti daljnjeg razvoja aplikacije.
 
 ## Što projekt pokazuje
 
 - pretvaranje poslovne ideje u digitalni proizvod
 - promišljanje korisničkog toka
-- modularan razvoj koji se može širiti
-- povezivanje weba, SEO-a, automatizacije i AI funkcija kada za to postoji stvarna potreba
-
-## Sljedeći korak
-
-Neki projekti krenu kao mali MVP, a tek podaci i stvarni korisnici pokažu koje funkcije vrijedi dalje razvijati. To je pristup koji primjenjujemo i na klijentske projekte.
+- modularan razvoj
+- povezivanje podataka, UX-a i budućih funkcija

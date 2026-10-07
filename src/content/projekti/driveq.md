@@ -1,28 +1,39 @@
 ---
 title: "DriveQ"
-description: "Digitalno rješenje povezano s transportom i mobilnošću, od poslovne ideje do digitalnog identiteta i web prisutnosti."
+description: "Web stranica za DriveQ, uslugu premium privatnog prijevoza i transfera u Zagrebu i Hrvatskoj."
 client: "BrandistiQ / Difference"
+type: "Web stranica"
+externalUrl: "https://driveq.com.hr"
+cover: "/projects/driveq/cover.webp"
+coverAlt: "DriveQ — premium privatni prijevoz u Zagrebu"
+gallery:
+  - image: "/projects/driveq/01.webp"
+    alt: "DriveQ — predstavljanje usluge i vozila"
+    caption: "Početni prikaz jasno komunicira uslugu, vozilo i glavne načine kontakta."
+    width: 696
+    height: 1200
+  - image: "/projects/driveq/02.webp"
+    alt: "DriveQ — opis usluge i karakter brenda"
+    caption: "Sadržaj naglašava osobnost usluge, diskreciju i premium karakter bez generičkog pristupa."
+    width: 1200
+    height: 551
 ---
 
 # DriveQ
 
-Digitalno rješenje povezano s transportom i mobilnošću, od poslovne ideje do digitalnog identiteta i web prisutnosti.
+Web stranica za DriveQ, uslugu premium privatnog prijevoza i transfera u Zagrebu i Hrvatskoj.
 
-## Ideja
+## Projekt
 
-Projekt je nastao iz konkretnog problema koji nije najbolje rješavati klasičnom prezentacijskom web stranicom. Zato je fokus bio na korisničkom procesu, poslovnoj logici i mogućnosti budućeg razvoja.
-
-## Digitalno rješenje
-
-Kod ovakvih projekata web nije samo vizualni sloj. Struktura, sadržaj, korisničko iskustvo, podaci i buduće funkcije moraju raditi zajedno.
+Projekt je razvijen kao stvarno digitalno rješenje s fokusom na jasnu strukturu, korisničko iskustvo, vizualni identitet i funkcionalan sadržaj.
 
 ## Što projekt pokazuje
 
-- pretvaranje poslovne ideje u digitalni proizvod
-- promišljanje korisničkog toka
-- modularan razvoj koji se može širiti
-- povezivanje weba, SEO-a, automatizacije i AI funkcija kada za to postoji stvarna potreba
+- promišljenu strukturu i korisnički tok
+- dizajn prilagođen konkretnom poslovnom kontekstu
+- responzivno iskustvo za mobitel i desktop
+- tehničku osnovu spremnu za daljnji razvoj
 
-## Sljedeći korak
+## Pogledajte projekt
 
-Neki projekti krenu kao mali MVP, a tek podaci i stvarni korisnici pokažu koje funkcije vrijedi dalje razvijati. To je pristup koji primjenjujemo i na klijentske projekte.
+Za pregled stvarne izvedbe koristite poveznicu uz ovaj projekt.
