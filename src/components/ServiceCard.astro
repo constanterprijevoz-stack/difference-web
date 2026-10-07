@@ -1,82 +1,234 @@
 ---
 const { number, title, description, href, variant = 'blue' } = Astro.props;
 ---
+
 <a class={`service-card service-card-${variant}`} href={href}>
-  <div class="service-card-visual" aria-hidden="true">
+  <div class="service-visual" aria-hidden="true">
+
     {variant === 'teal' && (
-      <svg class="service-visual-svg" viewBox="0 0 320 220">
+      <svg viewBox="0 0 520 270" role="presentation">
         <defs>
-          <linearGradient id="seoGlow" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#77f2d0" stop-opacity=".9"/>
-            <stop offset="1" stop-color="#3ab6a2" stop-opacity=".08"/>
+          <linearGradient id="seoFill" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#16c7a1" stop-opacity=".05"/>
+            <stop offset=".65" stop-color="#25e0bd" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#8affdf" stop-opacity=".5"/>
           </linearGradient>
+          <filter id="seoShadow"><feGaussianBlur stdDeviation="8"/></filter>
         </defs>
-        <rect x="26" y="28" width="268" height="164" rx="18" class="visual-window"/>
-        <circle cx="50" cy="50" r="4" class="visual-dot"/>
-        <circle cx="64" cy="50" r="4" class="visual-dot"/>
-        <circle cx="78" cy="50" r="4" class="visual-dot"/>
-        <path d="M48 158 C88 142 100 145 132 119 S176 105 201 76 S244 65 272 42" class="visual-line"/>
-        <path d="M48 158 C88 142 100 145 132 119 S176 105 201 76 S244 65 272 42 L272 174 L48 174Z" fill="url(#seoGlow)" class="visual-area"/>
-        <path d="M48 174H272M48 174V64" class="visual-axis"/>
-        <circle cx="201" cy="76" r="7" class="visual-point"/>
-        <path d="M246 42h26v26" class="visual-arrow"/>
+        <rect x="24" y="24" width="472" height="222" rx="24" class="panel"/>
+        <rect x="24" y="24" width="472" height="42" rx="24" class="topbar"/>
+        <circle cx="51" cy="45" r="5" class="dot"/>
+        <circle cx="68" cy="45" r="5" class="dot"/>
+        <circle cx="85" cy="45" r="5" class="dot"/>
+        <rect x="112" y="37" width="170" height="16" rx="8" class="search"/>
+        <text x="128" y="49" class="search-text">google / search</text>
+        <path d="M60 205 C112 185 126 191 164 163 S225 151 264 124 S327 112 363 80 S426 68 462 48 L462 222 L60 222Z" fill="url(#seoFill)"/>
+        <path d="M60 205 C112 185 126 191 164 163 S225 151 264 124 S327 112 363 80 S426 68 462 48" class="trend"/>
+        <circle cx="363" cy="80" r="8" class="point"/>
+        <path d="M432 48h30v30" class="arrow"/>
+        <text x="60" y="95" class="mini">ORGANIC VISIBILITY</text>
+        <text x="60" y="116" class="value">+ visibility</text>
       </svg>
     )}
 
     {variant === 'blue' && (
-      <svg class="service-visual-svg" viewBox="0 0 320 220">
-        <rect x="25" y="27" width="270" height="166" rx="18" class="visual-window"/>
-        <rect x="25" y="27" width="270" height="35" rx="18" class="visual-window-top"/>
-        <circle cx="49" cy="45" r="4" class="visual-dot"/>
-        <circle cx="63" cy="45" r="4" class="visual-dot"/>
-        <circle cx="77" cy="45" r="4" class="visual-dot"/>
-        <rect x="48" y="82" width="92" height="11" rx="5" class="visual-block"/>
-        <rect x="48" y="104" width="166" height="7" rx="3" class="visual-soft"/>
-        <rect x="48" y="119" width="140" height="7" rx="3" class="visual-soft"/>
-        <rect x="48" y="148" width="70" height="27" rx="8" class="visual-card"/>
-        <rect x="128" y="148" width="70" height="27" rx="8" class="visual-card"/>
-        <rect x="208" y="82" width="61" height="93" rx="10" class="visual-panel"/>
+      <svg viewBox="0 0 520 270" role="presentation">
+        <defs>
+          <linearGradient id="webScreen" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#152b49"/>
+            <stop offset="1" stop-color="#0c1624"/>
+          </linearGradient>
+        </defs>
+        <rect x="24" y="24" width="472" height="222" rx="24" class="panel"/>
+        <rect x="24" y="24" width="472" height="42" rx="24" class="topbar"/>
+        <circle cx="51" cy="45" r="5" class="dot"/>
+        <circle cx="68" cy="45" r="5" class="dot"/>
+        <circle cx="85" cy="45" r="5" class="dot"/>
+        <rect x="112" y="37" width="250" height="16" rx="8" class="address"/>
+        <rect x="50" y="86" width="270" height="135" rx="15" fill="url(#webScreen)" class="screen"/>
+        <rect x="344" y="86" width="116" height="62" rx="13" class="module"/>
+        <rect x="344" y="159" width="116" height="62" rx="13" class="module"/>
+        <rect x="68" y="106" width="108" height="10" rx="5" class="heading"/>
+        <rect x="68" y="128" width="175" height="7" rx="3" class="soft"/>
+        <rect x="68" y="143" width="140" height="7" rx="3" class="soft"/>
+        <rect x="68" y="174" width="70" height="27" rx="8" class="button"/>
+        <rect x="158" y="174" width="70" height="27" rx="8" class="outline"/>
+        <rect x="363" y="104" width="55" height="8" rx="4" class="heading"/>
+        <rect x="363" y="119" width="70" height="6" rx="3" class="soft"/>
+        <circle cx="402" cy="188" r="17" class="blue-ring"/>
+        <path d="M394 188l6 6 11-13" class="check"/>
       </svg>
     )}
 
     {variant === 'purple' && (
-      <svg class="service-visual-svg" viewBox="0 0 320 220">
-        <circle cx="160" cy="110" r="54" class="ai-core"/>
-        <circle cx="160" cy="110" r="25" class="ai-core-inner"/>
-        <circle cx="70" cy="56" r="10" class="ai-node"/>
-        <circle cx="255" cy="63" r="10" class="ai-node"/>
-        <circle cx="66" cy="164" r="10" class="ai-node"/>
-        <circle cx="257" cy="158" r="10" class="ai-node"/>
-        <path d="M79 61 119 83M241 68l-39 18M76 159l40-27M247 153l-43-25" class="ai-link"/>
-        <rect x="110" y="94" width="100" height="32" rx="16" class="ai-message"/>
-        <rect x="124" y="103" width="48" height="7" rx="3" class="ai-message-line"/>
-        <rect x="145" y="132" width="62" height="23" rx="12" class="ai-message ai-message-alt"/>
-        <circle cx="159" cy="143" r="3" class="ai-message-dot"/>
-        <circle cx="169" cy="143" r="3" class="ai-message-dot"/>
-        <circle cx="179" cy="143" r="3" class="ai-message-dot"/>
+      <svg viewBox="0 0 520 270" role="presentation">
+        <defs>
+          <radialGradient id="aiGlow">
+            <stop offset="0" stop-color="#b993ff" stop-opacity=".5"/>
+            <stop offset=".55" stop-color="#8655e8" stop-opacity=".16"/>
+            <stop offset="1" stop-color="#8655e8" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="260" cy="135" r="128" fill="url(#aiGlow)"/>
+        <path d="M90 68L198 112M430 68L322 112M91 207L198 158M429 207L322 158" class="network"/>
+        <circle cx="90" cy="68" r="13" class="node"/>
+        <circle cx="430" cy="68" r="13" class="node"/>
+        <circle cx="91" cy="207" r="13" class="node"/>
+        <circle cx="429" cy="207" r="13" class="node"/>
+        <circle cx="260" cy="135" r="66" class="core"/>
+        <circle cx="260" cy="135" r="36" class="core-inner"/>
+        <path d="M248 124h24M248 135h24M248 146h15" class="core-lines"/>
+        <rect x="167" y="48" width="92" height="32" rx="16" class="bubble"/>
+        <rect x="261" y="190" width="104" height="32" rx="16" class="bubble-alt"/>
+        <rect x="185" y="60" width="48" height="6" rx="3" class="bubble-line"/>
+        <rect x="279" y="202" width="62" height="6" rx="3" class="bubble-line"/>
+        <text x="38" y="252" class="mini">AI · AUTOMATION · ASSISTANTS</text>
       </svg>
     )}
 
     {variant === 'orange' && (
-      <svg class="service-visual-svg" viewBox="0 0 320 220">
-        <rect x="32" y="34" width="256" height="154" rx="18" class="app-window"/>
-        <rect x="32" y="34" width="256" height="34" rx="18" class="app-top"/>
-        <circle cx="55" cy="51" r="4" class="visual-dot"/>
-        <circle cx="69" cy="51" r="4" class="visual-dot"/>
-        <circle cx="83" cy="51" r="4" class="visual-dot"/>
-        <rect x="52" y="83" width="62" height="82" rx="10" class="app-side"/>
-        <rect x="128" y="84" width="66" height="33" rx="9" class="app-card"/>
-        <rect x="204" y="84" width="64" height="33" rx="9" class="app-card"/>
-        <rect x="128" y="129" width="140" height="36" rx="9" class="app-chart"/>
-        <path d="M140 154 157 143l18 8 19-16 17 7 20-12" class="app-line"/>
+      <svg viewBox="0 0 520 270" role="presentation">
+        <defs>
+          <linearGradient id="dash" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#352416"/>
+            <stop offset="1" stop-color="#17110c"/>
+          </linearGradient>
+        </defs>
+        <rect x="24" y="24" width="472" height="222" rx="24" class="panel"/>
+        <rect x="24" y="24" width="472" height="42" rx="24" class="topbar"/>
+        <circle cx="51" cy="45" r="5" class="dot"/>
+        <circle cx="68" cy="45" r="5" class="dot"/>
+        <circle cx="85" cy="45" r="5" class="dot"/>
+        <rect x="50" y="86" width="92" height="135" rx="14" class="sidebar"/>
+        <rect x="162" y="86" width="100" height="58" rx="13" fill="url(#dash)" class="module"/>
+        <rect x="278" y="86" width="100" height="58" rx="13" fill="url(#dash)" class="module"/>
+        <rect x="394" y="86" width="66" height="58" rx="13" fill="url(#dash)" class="module"/>
+        <rect x="162" y="158" width="298" height="63" rx="14" class="chart"/>
+        <path d="M181 201l30-19 28 10 34-28 35 18 39-22 46 13" class="chart-line"/>
+        <rect x="70" y="108" width="50" height="7" rx="3" class="orange-bright"/>
+        <rect x="70" y="129" width="37" height="6" rx="3" class="orange-soft"/>
+        <rect x="70" y="149" width="45" height="6" rx="3" class="orange-soft"/>
+        <rect x="70" y="169" width="31" height="6" rx="3" class="orange-soft"/>
+        <text x="181" y="105" class="metric">DATA</text>
+        <text x="297" y="105" class="metric">PROCESS</text>
+        <text x="412" y="105" class="metric">LIVE</text>
       </svg>
     )}
   </div>
 
-  <div class="card-number">{number}</div>
+  <div class="service-top">
+    <span class="card-number">{number}</span>
+    <span class="card-arrow">↗</span>
+  </div>
+
   <div class="service-card-copy">
     <h3>{title}</h3>
     <p>{description}</p>
   </div>
-  <span class="card-arrow">↗</span>
 </a>
+
+<style>
+  .service-card{
+    min-height:480px;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+    background:#0c1118;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    transition:background .25s ease,transform .25s ease;
+  }
+  .service-card:hover{background:#101721}
+  .service-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,transparent 38%,rgba(7,9,13,.12) 52%,rgba(7,9,13,.94) 84%);
+    pointer-events:none;
+    z-index:1;
+  }
+  .service-card-teal{background:linear-gradient(145deg,#0b1718,#0a1015)}
+  .service-card-blue{background:linear-gradient(145deg,#0b131f,#090f17)}
+  .service-card-purple{background:linear-gradient(145deg,#120d1c,#0b0d14)}
+  .service-card-orange{background:linear-gradient(145deg,#181109,#0d0d0c)}
+  .service-visual{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    padding:26px 26px 90px;
+    z-index:0;
+  }
+  .service-visual svg{
+    width:100%;
+    height:auto;
+    max-height:290px;
+    overflow:visible;
+  }
+  .service-card-teal .service-visual svg{filter:drop-shadow(0 15px 35px rgba(25,224,187,.12))}
+  .service-card-blue .service-visual svg{filter:drop-shadow(0 15px 35px rgba(85,151,255,.13))}
+  .service-card-purple .service-visual svg{filter:drop-shadow(0 15px 35px rgba(151,93,255,.16))}
+  .service-card-orange .service-visual svg{filter:drop-shadow(0 15px 35px rgba(255,157,76,.14))}
+  .panel{fill:rgba(13,21,31,.94);stroke:#304053;stroke-width:1.5}
+  .topbar{fill:rgba(23,34,48,.96)}
+  .dot{fill:#68788d}
+  .search{fill:#0b121b;stroke:#33485f}
+  .search-text,.mini,.metric{font:600 8px 'DM Sans',sans-serif;letter-spacing:.12em;fill:#7f91a8}
+  .trend{fill:none;stroke:#59e3c4;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+  .point{fill:#8affdd;stroke:#183b37;stroke-width:6}
+  .arrow{fill:none;stroke:#73efd1;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .address{fill:#0c141e;stroke:#33485f}
+  .screen{stroke:#315a86;stroke-width:1.5}
+  .module{fill:#142437;stroke:#385878;stroke-width:1.2}
+  .heading{fill:#b8d5ff}
+  .soft{fill:#506278}
+  .button{fill:#6da7ff}
+  .outline{fill:#1c2d43;stroke:#5c87bd}
+  .blue-ring{fill:#1b3551;stroke:#74b0ff;stroke-width:2}
+  .check{fill:none;stroke:#9bcaff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .network{fill:none;stroke:#7956a8;stroke-width:2}
+  .node{fill:#211733;stroke:#b38aff;stroke-width:2}
+  .core{fill:#24173a;stroke:#aa79ff;stroke-width:2}
+  .core-inner{fill:#9b67f2}
+  .core-lines{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;opacity:.9}
+  .bubble{fill:#211832;stroke:#835eb7}
+  .bubble-alt{fill:#302047;stroke:#986bd1}
+  .bubble-line{fill:#cbb2f5}
+  .sidebar{fill:#21170f;stroke:#6c4a2c}
+  .chart{fill:#1b150f;stroke:#68472a}
+  .chart-line{fill:none;stroke:#ffad62;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .orange-bright{fill:#ffb36b}
+  .orange-soft{fill:#795638}
+  .metric{fill:#bd8d61}
+  .service-top{
+    position:absolute;
+    top:26px;
+    left:30px;
+    right:30px;
+    display:flex;
+    justify-content:space-between;
+    z-index:3;
+  }
+  .card-number{font-size:.72rem;color:#8b98aa;letter-spacing:.12em}
+  .card-arrow{color:#b7c9e4;font-size:1.15rem}
+  .service-card-copy{
+    position:relative;
+    z-index:3;
+    padding:0 30px 30px;
+    max-width:680px;
+  }
+  .service-card h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(1.55rem,2.5vw,2rem);
+    letter-spacing:-.045em;
+    margin:0 0 8px;
+  }
+  .service-card p{color:#aeb8c8;margin:0;max-width:590px;font-size:.92rem;line-height:1.55}
+  @media(max-width:650px){
+    .service-card{min-height:430px}
+    .service-visual{padding:24px 16px 100px}
+    .service-card-copy{padding:0 22px 24px}
+    .service-top{left:22px;right:22px;top:22px}
+  }
+</style>
