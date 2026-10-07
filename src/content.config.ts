@@ -27,6 +27,7 @@ export const collections = {
       gallery: z.array(z.object({
         image: image(),
         alt: z.string(),
+        caption: z.string().optional(),
       })).default([]),
     }),
   }),

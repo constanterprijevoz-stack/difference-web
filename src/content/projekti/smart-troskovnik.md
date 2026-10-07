@@ -4,17 +4,21 @@ description: "Web aplikacija za digitalizaciju izračuna i troškovnika. Projekt
 client: "BrandistiQ / Difference"
 type: "Web aplikacija"
 externalUrl: "https://www.smart-troskovnik.com.hr/"
-cover: "./smart-troskovnik-01.jpg"
-coverAlt: "Smart-troškovnik — početni ekran web aplikacije za izračun okvirnog budžeta"
+cover: "./smart-troskovnik-cover.jpg"
+coverAlt: "Smart-troškovnik — naslovni prikaz web aplikacije za izračun okvirnog budžeta"
 gallery:
   - image: "./smart-troskovnik-01.jpg"
     alt: "Smart-troškovnik — početni ekran aplikacije"
+    caption: "Početni ekran vodi investitora prema brzoj procjeni okvirnog budžeta prije projektiranja i ugovaranja."
   - image: "./smart-troskovnik-02.jpg"
-    alt: "Smart-troškovnik — pregled stavki i cijena"
+    alt: "Smart-troškovnik — pregled stavki, količina i cijena"
+    caption: "Pregled stavki omogućuje provjeru pretpostavljenih materijala, količina i jediničnih cijena."
   - image: "./smart-troskovnik-03.jpg"
     alt: "Smart-troškovnik — primjer investitorskog predtroškovnika"
+    caption: "Rezultat procjene može se prikazati kao strukturirani investitorski predtroškovnik."
   - image: "./smart-troskovnik-04.jpg"
-    alt: "Smart-troškovnik — namjena proizvoda za privatnog investitora"
+    alt: "Smart-troškovnik — kome je alat namijenjen"
+    caption: "Alat je namijenjen početnom budžetiranju privatnog investitora, a ne zamjenjuje projektantski troškovnik."
 ---
 
 # Smart-troškovnik

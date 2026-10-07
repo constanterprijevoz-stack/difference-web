@@ -1,13 +1,12 @@
-# Smart-troškovnik – project gallery update
+# Smart-troškovnik project system — v2
 
-Replace the corresponding files in the repository.
+Ovo je ispravljena baza za sve buduće projekte.
 
-The four JPGs belong next to `smart-troskovnik.md`:
-- smart-troskovnik-01.jpg (cover)
-- smart-troskovnik-02.jpg
-- smart-troskovnik-03.jpg
-- smart-troskovnik-04.jpg
-
-For every future project, add `cover`, `coverAlt`, `externalUrl` and `gallery` to its Markdown frontmatter.
-
-The Astro `image()` content-collection helper lets local images be processed by Astro, while `<Picture>` serves modern AVIF/WebP formats for the gallery.
+- Naslovna fotografija je zaseban 16:9 web cover, ne veliki mobilni screenshot.
+- Gallery fotografije su smanjene na praktičnu web širinu.
+- Astro `<Picture>` generira AVIF/WebP varijante i responsive širine.
+- Galerija je lazy-loaded.
+- Fotografije nisu više ogromni full-width blokovi: svaka je u kontroliranom media okviru i ima pripadajući tekst.
+- Na desktopu se slika i tekst izmjenjuju lijevo/desno; na mobitelu se slažu jedan ispod drugoga.
+- Homepage ProjectCard ima opcionalni cover.
+- Za svaki novi projekt koristimo isti frontmatter: cover, coverAlt, externalUrl i gallery.

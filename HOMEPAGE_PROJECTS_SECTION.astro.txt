@@ -1,0 +1,30 @@
+U postojeći index.astro dodaj:
+import { getCollection } from 'astro:content';
+const projectEntries = await getCollection('projekti', ({ data }) => !data.draft);
+const projectById = new Map(projectEntries.map((project) => [project.id, project]));
+
+Zatim postojeći .projects-grid zamijeni ovim:
+<div class="projects-grid">
+  <ProjectCard type="Web aplikacija" title="Smart-troškovnik"
+    description="Digitalni alat za izračun troškova i pretvaranje složenog poslovnog procesa u jednostavno korisničko iskustvo."
+    href="/projekti/smart-troskovnik/"
+    image={projectById.get('smart-troskovnik')?.data.cover}
+    imageAlt={projectById.get('smart-troskovnik')?.data.coverAlt} />
+  <ProjectCard type="Digitalno rješenje" title="DriveQ"
+    description="Projekt digitalizacije usluge povezane s transportom i mobilnošću."
+    href="/projekti/driveq/"
+    image={projectById.get('driveq')?.data.cover}
+    imageAlt={projectById.get('driveq')?.data.coverAlt} />
+  <ProjectCard type="EPR · web aplikacija" title="EPR Check"
+    description="Digitalni alat koji složen proces provjere pretvara u strukturirano korisničko iskustvo."
+    href="/projekti/epr-check/"
+    image={projectById.get('epr-check')?.data.cover}
+    imageAlt={projectById.get('epr-check')?.data.coverAlt} />
+  <ProjectCard type="Digitalni proizvod" title="EPR Report"
+    description="Nastavak EPR Checka: strukturirani digitalni izvještaj iz prikupljenih podataka."
+    href="/projekti/epr-report/"
+    image={projectById.get('epr-report')?.data.cover}
+    imageAlt={projectById.get('epr-report')?.data.coverAlt} />
+</div>
+
+Za budući projekt dovoljno je dodati cover/coverAlt u njegov .md i image prop u karticu.
